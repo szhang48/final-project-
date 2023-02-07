@@ -11,35 +11,35 @@ function Cards() {
           <ul className='cards__items'>
             <CardItem
               src='images/img-9.jpg'
-              text='Explore the hidden waterfall deep inside the Amazon Jungle'
-              label='Adventure'
-              path='/services'
+              text='Air Jordan is a line of basketball shoes and athletic apparel produced by American corporation Nike, Inc.'
+              label='Jordans'
+              path='/products'
             />
             <CardItem
               src='images/img-2.jpg'
-              text='Travel through the Islands of Bali in a Private Cruise'
-              label='Luxury'
-              path='/services'
+              text='Adidas AG is a German multinational corporation'
+              label='Adidas'
+              path='/products'
             />
           </ul>
           <ul className='cards__items'>
             <CardItem
               src='images/img-3.jpg'
-              text='Set Sail in the Atlantic Ocean visiting Uncharted Waters'
-              label='Mystery'
-              path='/services'
+              text='New Balance Athletics, Inc., best known as simply New Balance, is one of the worlds major sports footwear and apparel manufacturers'
+              label='New Balance'
+              path='/products'
             />
             <CardItem
               src='images/img-4.jpg'
-              text='Experience Football on Top of the Himilayan Mountains'
-              label='Adventure'
+              text='Supreme is an American clothing and skateboarding lifestyle brand established in New York City'
+              label='Supreme'
               path='/products'
             />
             <CardItem
               src='images/img-8.jpg'
-              text='Ride through the Sahara Desert on a guided camel tour'
-              label='Adrenaline'
-              path='/sign-up'
+              text='Nike, Inc. is an American multinational corporation that is engaged in the design, development, manufacturing, and worldwide marketing and sales of footwear, apparel, equipment, accessories, and services. '
+              label='Nike'
+              path='/products'
             />
           </ul>
         </div>
