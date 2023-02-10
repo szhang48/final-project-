@@ -1,0 +1,42 @@
+* 
+{
+    margin: 0; 
+    padding: 0;
+    font-family: 'Alfa Slab One', cursive;
+}
+
+/* body { 
+    display: flex;
+    justify-content: center;
+    background: white;
+} */
+
+/* .grid-container { 
+    position: relative;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30px;
+    margin-top: 8%;
+    width: 1100px;
+} */
+
+.grid-container{ 
+    width: 308px;
+    position: relative;
+    height: 400px;
+    background: pink ;
+    margin: 30px 10px;
+    padding: 20px 15px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    flex-direction: column;
+    box-shadow: 0.5px 10px black;
+    transition: 0.3s ease-in-out;
+    margin-top: 5%;
+}
+
+.grid-item{
+    text-align: center;
+}

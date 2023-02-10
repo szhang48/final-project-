@@ -7,16 +7,11 @@ import Home from './components/pages/Home';
 import Services from './components/pages/Services';
 import Products from './components/pages/Products';
 import SignUp from './components/pages/SignUp';
+import Login from './components/pages/Login';
 
 
 function App() {
-  // const [count, setCount] = useState(0);
-
-  // useEffect(() => {
-  //   fetch("/hello")
-  //     .then((r) => r.json())
-  //     .then((data) => setCount(data.count));
-  // }, []);
+  
 
 
   return (
@@ -27,6 +22,7 @@ function App() {
           <Route path='/' exact component={Home} />
           <Route path='/services' component={Services} />
           <Route path='/products' component={Products} />
+          <Route path='/login' component={Login} />
           <Route path='/sign-up' component={SignUp} />
         </Switch>
       </Router>

@@ -72,7 +72,7 @@
   font-size: 100px;
 }
 
-.sign-up {
+.login {
   background-image: url('/public/images/img-8.jpg');
   background-position: center;
   background-size: cover;
@@ -80,3 +80,12 @@
   color: #fff;
   font-size: 100px;
 }
+
+
+.product-image {
+  width: 200px;
+  height: 200px;
+  display: grid;
+  
+}
+
