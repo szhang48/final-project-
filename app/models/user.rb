@@ -12,6 +12,7 @@ class User < ApplicationRecord
     has_many :wanted_sneakers, through: :want_sneakers, source: :sneaker
   
     validates :username, uniqueness: true
+   
 
     def self.from_token_request(request)
     

@@ -2,10 +2,29 @@ import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css'; 
 import { Button } from './Button';
+import { useContext } from 'react';
+import { UserContext } from '../context/UserContext';
 
 function NavBar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true) 
+  // const {user}= useContext(UserContext);
+
+  // console.log(user);
+
+  const [user, setUser]= useState(null);
+
+  useEffect(()=> {
+      let User= localStorage.getItem("User");
+       
+     if(User){
+          User= JSON.parse(User)
+          setUser(User);
+     }
+     else{
+      setUser(null)
+     }
+   }, [])
 
   const handleClick = () => setClick(!click); 
   const closeMobileMenu = () => setClick(false);
@@ -18,11 +37,16 @@ function NavBar() {
     }
   };
 
+
   useEffect(() => { 
     showButton();
   }, []);
 
   window.addEventListener('resize', showButton); 
+
+  const logOut=()=> {
+    localStorage.removeItem("User")
+  }
 
 
   return (
@@ -35,6 +59,7 @@ function NavBar() {
           <div className='menu-icon' onClick={handleClick}>
               <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
+          <div style={{display: 'flex', alignItems: 'center'}}>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
               <Link to='/' className='nav-links' onClick={closeMobileMenu}>
@@ -52,12 +77,28 @@ function NavBar() {
               </Link>
             </li>
             <li className='nav-item'>
+              <Link to='/profile' className='nav-links' onClick={closeMobileMenu}>
+                Profile 
+              </Link>
+            </li>
+            {!user && (
+            <li className='nav-item'>
               <Link to='/login' className='nav-links-mobile' onClick={closeMobileMenu}>
                 Login
               </Link>
             </li>
+          ) }
+           {user && (
+            <li className='nav-item' >
+              <Link to='/login' className='nav-links-mobile' onClick={()=> {closeMobileMenu(); logOut()}}>
+                Logout
+              </Link>
+            </li>
+            ) }
           </ul>
-          {button && <Button buttonStyle='btn--outline'>Login</Button>}
+          {button && !user && <Button buttonStyle='btn--outline'>Login</Button>}
+          {button && user && <Button buttonStyle='btn--outline' onClick={logOut}>Logout</Button>}
+          </div>
         </div>
      </nav>
    </>

@@ -1,17 +1,23 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../context/UserContext';
+// import { useNavigation } from 'react-router-dom';
 
 import "./Login.css"
 
-function Login() {
+function Login(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [popupStyle, showPopup] = useState('hide');
   const [message, setMessage] = useState('');
-  
+
+  // const navigate= useNavigation();
+
+  const {setUser}= useContext(UserContext);
+
   const popup = async () => { 
     try {
-      const res = await fetch("/users", {
+      const res = await fetch("/login", {
         method: "POST",
         headers: {
           'Accept': 'application/json',
@@ -20,10 +26,19 @@ function Login() {
         body: JSON.stringify({username, password})
       });
       const data = await res.json();
+      if(data.id){
+      setUser(data)
+      localStorage.setItem("User", JSON.stringify(data));
       console.log("signup response", data);
-      setMessage("Signup is successful");
+      setMessage("Login is successful");
+    props.history.push("/profile")
+      }
+      else{
+        setMessage("Login failed");
+        return
+      }
     } catch (e) {
-
+      setMessage("Login failed")
     }
     showPopup("login-popup")
     setTimeout(() => showPopup("hide"), 3000)
@@ -35,8 +50,8 @@ function Login() {
    <div className="page">
    <div className="cover">
       <h1>Login</h1>
-      <input type="text" placeholder='username' /> 
-      <input type="password" placeholder='password' />
+      <input onChange={(e)=> setUsername(e.target.value)} type="text" placeholder='username' /> 
+      <input onChange={(e)=> setPassword(e.target.value)} type="password" placeholder='password' />
 
       <div className='login-btn' onClick={popup}>Login</div>
       <p className='text'><Link to='/sign-up'>  SIGN UP </Link> </p>
@@ -46,8 +61,8 @@ function Login() {
       </div>
       
       <div className={popupStyle}>
-        <h3>Login Failed</h3>
-        <p>Username or password incorrect</p>
+        {/* <h3>Login Failed</h3> */}
+        <p>{message}</p>
       </div>
     </div>
     </div>

@@ -11,32 +11,72 @@
     background: white;
 } */
 
-/* .grid-container { 
+.container { 
     position: relative;
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     padding: 30px;
     margin-top: 8%;
-    width: 1100px;
-} */
+    
+}
 
-.grid-container{ 
+.container .card{ 
     width: 308px;
     position: relative;
-    height: 400px;
+    height: 400px; 
+    background: pink;
+    padding: 20px 15px;
+    margin: 30px 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0.5px 10px white;
+    transition: 0.3s ease-in-out;
+    margin-top: 5%;
+}
+
+.container .card .imgBx{ 
+    position: relative;
+    width: 260px;
+    height: 260px;
+    top: -60px;
+    left: 20px;
+    box-shadow: 0 5px 20px rbga (0,0,0,1.2);
+}
+
+.container .card .imgBx img{ 
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.imgBx:hover img{ 
+    transform: scale(1.1);
+}
+
+/* .grid-container{ 
+   
+    position: relative;
     background: pink ;
     margin: 30px 10px;
     padding: 20px 15px;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto;
     flex-direction: column;
     box-shadow: 0.5px 10px black;
     transition: 0.3s ease-in-out;
     margin-top: 5%;
+    grid-auto-columns: auto;
+    justify-content: space-evenly;
 }
 
 .grid-item{
     text-align: center;
 }
+
+.product-image { 
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: auto;
+} */

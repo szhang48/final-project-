@@ -43,7 +43,7 @@
 .google {background-image: url('/public/icons/google.png')}
 .facebook {background-image: url("/public/icons/facebook.png")}
 
-input {
+input, textarea {
     border: none;
     background-color: rgb(229, 226, 226);
     width: 80%;
@@ -53,7 +53,7 @@ input {
     font-size: 0.75em;
 }
 
-input:focus {
+input:focus, textarea:focus {
     outline-color: rgb(32, 177, 255);
 }
 
