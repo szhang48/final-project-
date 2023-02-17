@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2023_02_08_022325) do
     t.string "title"
     t.text "body"
     t.integer "user_id"
-    t.integer "sneaker_id", default: 0
+    t.string "img"
     t.integer "likes", default: 0
     t.integer "dislikes", default: 0
     t.datetime "created_at", precision: 6, null: false

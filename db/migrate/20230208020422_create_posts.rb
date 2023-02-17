@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.string :title
       t.text :body
       t.integer :user_id
-      t.integer :sneaker_id, :default => 0
+      t.string :img
       t.integer :likes, :default => 0
       t.integer :dislikes, :default => 0
 

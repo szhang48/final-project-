@@ -15,9 +15,25 @@ function Product(props) {
     
      }, [])
 
-     const buyProduct=(productId)=> {
-
-     }
+     const buyProduct=(product)=> {
+        console.log({...product, user_id: user.id})
+           
+        // fetch("/own_sneakers", {
+        //     method: "POST",
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json'
+        //       },
+        //       body: JSON.stringify({...product, user_id: user.id})
+        // })
+        // .then(res=> {
+        //     alert("Product bought successfully");
+        //     props.history.push("/profile")
+        // })
+        // .catch(err=> {
+        //     console.log(err)
+        // });
+    }
 
     const { product } = props;
     return (
@@ -32,7 +48,8 @@ function Product(props) {
                     <p>Price: {product.retail_price}</p>
                     <p>Resell: {product.market_value}</p>
                     
-                    {user && <button onClick={()=> buyProduct(product.id)}>Buy</button>}
+                    {(user && !props.services) && <button onClick={()=> buyProduct(product)}>Buy</button>}
+                    {(user && props.services) && <button>Sell</button>}
                 </div>
             </div>
         </div>

@@ -37,6 +37,15 @@ useEffect(()=> {
             return [product, ...oldProducts];
         })
 
+        // fetch("/posts", {
+        //     method: "POST",
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json'
+        //       },
+        //       body: JSON.stringify(product)
+        // })
+
         setTitle("");
         setImage("");
         setPrice("");
@@ -46,24 +55,7 @@ useEffect(()=> {
     }
 
 
-    // const selectImage=()=> {
-    //    document.querySelector(".file").click(); 
-    //    console.log("Image",document.querySelector(".file").value)
-    // } 
-
-    const createImageUrl=(e)=> {
-       // console.log(e.target.files[0])
-       // const file = URL.createObjectURL(e.target.files[0])
-
-       // console.log({file})
-
-        setImage(e.target.value);
-
-        // if (e.target.files.length > 0) {
-        //     const file = URL.createObjectURL(e.target.files[0]);
-        //     setImage(file);
-        //   }
-    }
+  
 
 
     return( 
@@ -72,7 +64,7 @@ useEffect(()=> {
 
            <form className="form" onSubmit={handleSubmit}>
               <p><input type="text" placeholder="title" value={title} onChange={(e)=> setTitle(e.target.value)} required/></p>
-              <p className="file-cont"><input className="file" type="file" placeholder="product image" value={image}  onChange={(e)=> createImageUrl(e)} required accept="image/*"/></p>
+              <p><input type="text" placeholder="product image" value={image}  onChange={(e)=> setImage(e.target.value)} required/></p>
               {/* <p><input type="text" placeholder="product image" value={image} required onClick={selectImage}/></p> */}
               <p><input type="number" placeholder="price" value={price} onChange={(e)=> setPrice(e.target.value)} required/></p>
               <p><input type="text" placeholder="color" value={color} onChange={(e)=> setColor(e.target.value)} required/></p>
@@ -85,7 +77,7 @@ useEffect(()=> {
            {
                     products.map(product => 
                        
-                        <Product key={product.id} product={product} />
+                        <Product key={product.id} product={product} services="services"/>
                       
                       )
                 }
